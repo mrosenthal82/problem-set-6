@@ -94,7 +94,15 @@ function drawRectangle() {
  */
 
 function drawColoredRectangle() {
-
+  let op = document.getElementById("canvas3").getContext("2d");
+  let color = String(prompt("Color:"));
+  if (color == "black" || color == "blue" || color =="green" || color == "orange" || color == "purple" || color == "red" || color == "yellow"){
+    op.fillStyle = color;
+    op.fillRect(10, 10, 100, 50);
+  } else {
+    alert(color+" is not a supported color");
+    op.clearRect(0, 0, 1024, 512);
+  }
 }
 
 /*
