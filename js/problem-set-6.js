@@ -135,7 +135,15 @@ function drawColoredRectangle() {
  */
 
 function drawTriangle() {
-
+  let op = document.getElementById("canvas4").getContext("2d");
+  let sides = [];
+  let sides[1] = Number(prompt("Side 1:"));
+  let sides[2] = Number(prompt("Side 2:"));
+  let sides[3] = Number(prompt("Side 3:"));
+  let a = Math.min(...sides);
+  let c = Math.max(...sides);
+  let b = sides.reduce((x,y) => x + y, 0) - a - c;
+  // alert(a+b+c);
 }
 
 /*
