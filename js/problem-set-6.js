@@ -41,7 +41,31 @@ function sayHello() {
  */
 
 function drawRectangle() {
+  let op = document.getElementById('canvas2').getContext("2d");
+  let height = Number(prompt("Height:"));
+  let width = Number(prompt("Width:"));
+  let x =  Number(prompt("X:"));
+  let y = Number(prompt("Y:"));
 
+  if (height + y > 512 || width + x > 1024){
+    alert("The rectangle will not fit on the canvas");
+  } else if (height < 1){
+    alert("Height is too small");
+  } else if (width < 1){
+    alert("Width is too small");
+  } else if (x < 5){
+    alert("X is too small");
+  } else if (y < 5){
+    alert("Y is too small");
+  } else if (isNaN(height) || isNaN(width) || isNaN(x) || isNaN(y)){
+    alert("One of your inputs is not a number");
+  } else {
+    op.clearRect(0,0,1024,512);
+    op.fillStyle = "gray";
+    op.fillRect(x-1, y-1, width+2, height+2);
+    op.fillStyle = "white";
+    op.fillRect(x+1, y+1, width-2, height-2);
+  }
 }
 
 /*
