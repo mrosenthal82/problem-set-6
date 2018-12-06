@@ -159,6 +159,7 @@ function drawTriangle() {
     op.lineTo(b+10, a+10);
     op.lineTo(10,10);
     op.stroke();
+    op.closePath();
   }
 }
 
@@ -197,6 +198,7 @@ function drawSmileyFace() {
   op.moveTo(10+radius*1.7, radius+10);
   op.arc(radius+10, radius+10, radius*.7, 0, Math.PI, false);
   op.stroke();
+  op.closePath();
 }
 
 /*
