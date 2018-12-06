@@ -182,7 +182,21 @@ function drawTriangle() {
  */
 
 function drawSmileyFace() {
-
+  let op = document.getElementById("canvas5").getContext("2d");
+  op.clearRect(0,0,1024,512);
+  let radius;
+  do {
+    radius = Number(prompt("Radius"));
+  } while (isNaN(radius) || radius<1 || radius>250.5);
+  op.beginPath();
+  op.arc(radius+10, radius+10, radius, 0, Math.PI*2, true);
+  op.moveTo(10+radius*.6, radius+10-radius/2);
+  op.arc(radius+10-radius/2, radius+10-radius/2, radius*.1, 0, Math.PI*2, true);
+  op.moveTo(10+radius*1.6, radius+10-radius/2);
+  op.arc(radius+10+radius/2, radius+10-radius/2, radius*.1, 0, Math.PI*2, true);
+  op.moveTo(10+radius*1.7, radius+10);
+  op.arc(radius+10, radius+10, radius*.7, 0, Math.PI, false);
+  op.stroke();
 }
 
 /*
