@@ -136,14 +136,30 @@ function drawColoredRectangle() {
 
 function drawTriangle() {
   let op = document.getElementById("canvas4").getContext("2d");
+  op.clearRect(0, 0, 1024, 512);
   let sides = [];
-  let sides[1] = Number(prompt("Side 1:"));
-  let sides[2] = Number(prompt("Side 2:"));
-  let sides[3] = Number(prompt("Side 3:"));
+  let input;
+  for (let i = 0; i<3; i++){
+    do {
+      input = Number(prompt(`Side ${i+1}:`));
+    } while (isNaN(input) || input<=0);
+    sides.push(input);
+  }
   let a = Math.min(...sides);
   let c = Math.max(...sides);
   let b = sides.reduce((x,y) => x + y, 0) - a - c;
-  // alert(a+b+c);
+  if (c*c != a*a+b*b){
+    alert("This is not a valid right triangle.");
+  } else if (a>1024 || b>512){
+    alert("The triangle will not fit on the canvas.");
+  } else {
+    op.beginPath();
+    op.moveTo(10,10);
+    op.lineTo(10, a+10);
+    op.lineTo(b+10, a+10);
+    op.lineTo(10,10);
+    op.stroke();
+  }
 }
 
 /*
