@@ -251,11 +251,11 @@ function drawStar() {
     //   degrees+=72;
     // }
     //degrees=0;
-    
+
     op.moveTo(125,125-outerRadius);
     for (let i=0; i<=5; i++){
       op.lineTo(125+Math.round((Math.cos(Math.PI*(degrees-90)/180)*outerRadius)), 125+Math.round((Math.sin(Math.PI*(degrees-90)/180)*outerRadius)));
-      degrees +=36
+      degrees +=36;
       op.lineTo(125+Math.round((Math.cos(Math.PI*(degrees-90)/180)*innerRadius)), 125+Math.round((Math.sin(Math.PI*(degrees-90)/180)*innerRadius)));
       degrees +=36;
     }
