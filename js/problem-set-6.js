@@ -250,7 +250,7 @@ function drawStar() {
       op.arc(125,125,innerRadius,Math.PI*(-90+degrees+36)/180, Math.PI*(-90+degrees+108)/180, false);
       degrees+=72;
     }
-
+// COME BACK TO THIS. DON'T FORGET.
     op.stroke();
     op.closePath();
   }
@@ -272,7 +272,27 @@ function drawStar() {
  */
 
 function drawStopSign() {
-
+  let op = document.getElementById("canvas7").getContext("2d");
+  let s = 80;
+  let c = (Math.sqrt(2*s*s)).toFixed(0);
+  let x = s-10;
+  let y = 10;
+  op.beginPath();
+  op.moveTo(x,y);
+  op.lineTo(x+s,y);
+  op.lineTo(x+s+57,y+57);
+  op.lineTo(x+s+57,y+s+57);
+  op.lineTo(x+s,y+s+57+57);
+  op.lineTo(x,y+s+57+57);
+  op.lineTo(x-57,y+s+57);
+  op.lineTo(x-57,y+57);
+  op.lineTo(x,y);
+  op.fillStyle="#f00";
+  op.fill();
+  op.closePath();
+  op.fillStyle="#fff";
+  op.font="65px sans-serif";
+  op.fillText("STOP", 22, 133);
 }
 
 /*
