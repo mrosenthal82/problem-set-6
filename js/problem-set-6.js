@@ -224,17 +224,17 @@ function drawStar() {
   let op = document.getElementById("canvas6").getContext("2d");
   op.clearRect(0,0,1024,512);
 
-  // let outerRadius;
-  // let innerRadius;
-  // do {
-  //   outerRadius = Number(prompt("Outer Radius:"));
-  // } while (isNaN(outerRadius));
-  // do {
-  //   innerRadius = Number(prompt("Inner Radius:"));
-  // } while (isNaN(innerRadius));
+  let outerRadius;
+  let innerRadius;
+  do {
+    outerRadius = Number(prompt("Outer Radius:"));
+  } while (isNaN(outerRadius));
+  do {
+    innerRadius = Number(prompt("Inner Radius:"));
+  } while (isNaN(innerRadius));
 
-  let outerRadius=100;
-  let innerRadius=40;
+  // let outerRadius=100;
+  // let innerRadius=40;
   let degrees = 0;
 
   if (innerRadius > outerRadius){
@@ -245,12 +245,20 @@ function drawStar() {
     alert("Your inner radius is too small");
   } else {
     op.beginPath();
-    for (let i = 0; i<6; i++){
-      op.arc(125,125,outerRadius,Math.PI*(-90+degrees)/180,Math.PI*(-90+degrees+72)/180, false);
-      op.arc(125,125,innerRadius,Math.PI*(-90+degrees+36)/180, Math.PI*(-90+degrees+108)/180, false);
-      degrees+=72;
+    // for (let i = 0; i<6; i++){
+    //   op.arc(125,125,outerRadius,Math.PI*(-90+degrees)/180,Math.PI*(-90+degrees+72)/180, false);
+    //   op.arc(125,125,innerRadius,Math.PI*(-90+degrees+36)/180, Math.PI*(-90+degrees+108)/180, false);
+    //   degrees+=72;
+    // }
+    //degrees=0;
+    
+    op.moveTo(125,125-outerRadius);
+    for (let i=0; i<=5; i++){
+      op.lineTo(125+Math.round((Math.cos(Math.PI*(degrees-90)/180)*outerRadius)), 125+Math.round((Math.sin(Math.PI*(degrees-90)/180)*outerRadius)));
+      degrees +=36
+      op.lineTo(125+Math.round((Math.cos(Math.PI*(degrees-90)/180)*innerRadius)), 125+Math.round((Math.sin(Math.PI*(degrees-90)/180)*innerRadius)));
+      degrees +=36;
     }
-// COME BACK TO THIS. DON'T FORGET.
     op.stroke();
     op.closePath();
   }
