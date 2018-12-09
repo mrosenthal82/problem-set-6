@@ -316,7 +316,7 @@ function drawStopSign() {
 function drawPyramid() {
   let op = document.getElementById("canvas8").getContext("2d");
   op.clearRect(0,0,1024,512);
-  
+
   let s = Number(prompt("Length:"));
   let x = 10;
   let y = 502;
@@ -383,5 +383,67 @@ function drawPyramid() {
  */
 
 function drawHouse() {
+  let op = document.getElementById("canvas9").getContext("2d");
+  op.clearRect(0,0,1024,760);
+  let houseColor = prompt("House Color:");
+  let doorColor = prompt("Front Door Color:");
+  if ((houseColor == "blue" || houseColor == "brown"|| houseColor == "green" || houseColor == "orange" || houseColor == "purple" || houseColor == "red" || houseColor == "yellow") && (doorColor == "blue" || doorColor == "brown"|| doorColor == "green" || doorColor == "orange" || doorColor == "purple" || doorColor == "red" || doorColor == "yellow")){
+    //body
+    op.fillStyle="black";
+    op.fillRect(150,300,724,450);
+    op.fillStyle=houseColor;
+    op.fillRect(151,301,722,448);
+    op.fill();
 
+    //roof
+    op.beginPath();
+    op.moveTo(150,300);
+    op.lineTo(512,10);
+    op.lineTo(874,300);
+    op.lineTo(150,300);
+    op.fillStyle="black";
+    op.fill();
+    op.closePath();
+    op.beginPath();
+    op.moveTo(153,299);
+    op.lineTo(512,12);
+    op.lineTo(871,299);
+    op.lineTo(151,299);
+    op.fillStyle="gray";
+    op.fill();
+    op.closePath();
+
+    //windows
+    op.fillStyle="black";
+    op.fillRect(260,620,80,80);
+    op.fillRect(260,400,80,80);
+    op.fillRect(684,620,80,80);
+    op.fillRect(684,400,80,80);
+    op.fillStyle="#80ddf3";
+    op.fillRect(261,621,78,78);
+    op.fillRect(261,401,78,78);
+    op.fillRect(685,621,78,78);
+    op.fillRect(685,401,78,78);
+
+    //door
+    op.fillStyle="black"
+    op.fillRect(462,590,100,160);
+    op.fillStyle=doorColor;
+    op.fillRect(463,591,98,158);
+
+    //doorknob
+    op.beginPath()
+    op.arc(545,670,8,0,Math.PI*2,true);
+    op.fillStyle="black";
+    op.fill();
+    op.closePath();
+    op.beginPath()
+    op.arc(545,670,7,0,Math.PI*2,true);
+    op.fillStyle="gold";
+    op.fill();
+    op.closePath();
+
+  } else {
+    alert("One of your colors is not supported");
+  }
 }
