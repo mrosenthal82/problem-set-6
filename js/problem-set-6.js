@@ -314,7 +314,43 @@ function drawStopSign() {
  */
 
 function drawPyramid() {
+  let op = document.getElementById("canvas8").getContext("2d");
+  op.clearRect(0,0,1024,512);
+  
+  let s = Number(prompt("Length:"));
+  let x = 10;
+  let y = 502;
 
+  if (isNaN(s)){
+    alert("Your input is not a number");
+  } else if (s>100){
+    alert("The pyramid will not fit on the canvas");
+  } else {
+    op.beginPath();
+    let odd = true;
+    for (let a=0; a<5;a++){
+      for (let i=0; i<5-a; i++){
+        op.moveTo(x,y);
+        op.lineTo(x+s,y);
+        op.lineTo(x+s,y-s);
+        op.lineTo(x,y-s);
+        op.lineTo(x,y);
+        if (odd){
+          x+=s;
+        } else {
+          x-=s;
+        }
+      }
+      if (odd){
+        x-=s*3/2;
+      } else {
+        x+=s*3/2;
+      }
+      y-=s
+      odd = !odd;
+    }
+    op.stroke();
+  }
 }
 
 /*
