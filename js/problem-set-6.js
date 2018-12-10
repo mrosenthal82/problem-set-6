@@ -301,7 +301,6 @@ function drawStopSign() {
   op.fillStyle="#fff";
   op.font="65px sans-serif";
   op.fillText("STOP", 22, 133);
-  alert(c);
 }
 
 /*
