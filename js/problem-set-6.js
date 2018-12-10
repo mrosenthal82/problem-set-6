@@ -282,7 +282,7 @@ function drawStar() {
 function drawStopSign() {
   let op = document.getElementById("canvas7").getContext("2d");
   let s = 80;
-  let c = (Math.sqrt(2*s*s)).toFixed(0);
+  let c = Number((s/Math.sqrt(2)).toFixed(0));
   let x = s-10;
   let y = 10;
   op.beginPath();
@@ -290,8 +290,8 @@ function drawStopSign() {
   op.lineTo(x+s,y);
   op.lineTo(x+s+c,y+c);
   op.lineTo(x+s+c,y+s+c);
-  op.lineTo(x+s,y+s+2c);
-  op.lineTo(x,y+s+2c);
+  op.lineTo(x+s,y+s+c+c);
+  op.lineTo(x,y+s+c+c);
   op.lineTo(x-c,y+s+c);
   op.lineTo(x-c,y+c);
   op.lineTo(x,y);
@@ -301,6 +301,7 @@ function drawStopSign() {
   op.fillStyle="#fff";
   op.font="65px sans-serif";
   op.fillText("STOP", 22, 133);
+  alert(c);
 }
 
 /*
