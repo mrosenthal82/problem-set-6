@@ -13,6 +13,7 @@
 function sayHello() {
   let canvas = document.getElementById('canvas1');
   let op = canvas.getContext("2d");
+  op.clearRect(0,0,1024,512);
   op.font = "48px sans-serif";
   op.strokeText('Hello, World!', 10, 50);
 }
