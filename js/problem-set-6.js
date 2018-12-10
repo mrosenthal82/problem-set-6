@@ -288,12 +288,12 @@ function drawStopSign() {
   op.beginPath();
   op.moveTo(x,y);
   op.lineTo(x+s,y);
-  op.lineTo(x+s+57,y+57);
-  op.lineTo(x+s+57,y+s+57);
-  op.lineTo(x+s,y+s+57+57);
-  op.lineTo(x,y+s+57+57);
-  op.lineTo(x-57,y+s+57);
-  op.lineTo(x-57,y+57);
+  op.lineTo(x+s+c,y+c);
+  op.lineTo(x+s+c,y+s+c);
+  op.lineTo(x+s,y+s+2c);
+  op.lineTo(x,y+s+2c);
+  op.lineTo(x-c,y+s+c);
+  op.lineTo(x-c,y+c);
   op.lineTo(x,y);
   op.fillStyle="#f00";
   op.fill();
